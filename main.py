@@ -1,93 +1,49 @@
-print("Hello Guys Wellcome To The Quizzzz Game....!!!!")
+import random
 
-player = input("Do you want to play the game (yes/no) :")
+user=0
+computer=0
 
-if player.lower() == "yes":
-    print("lets Start The game...")
-else:
-    quit()
-score=0
+options=["rock","paper","scissor"]
 
-qustion = input("How many legs does a spider have? :")
+while True:
 
-if qustion.lower() == "eight":
-        print("Your correct")
-        score=score+1
-else:
-        print("Your Wrong")
+    user_type = input(" Type Rock/Paper/Scissor or Exit :")
 
-qustion = input(" What's the name of a place you go to see lots of animals? :")
+    if user_type=="exit":
+        quit()
+    if user_type not in options:
+        continue
 
-if qustion.lower() == "zoo":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
+    random_num= random.randint(0,2)
 
-qustion = input(" If you freeze water, what do you get? :")
+    computer_type = options[random_num]
 
-if qustion.lower() == "ice":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
+    print("Computer Types :",computer_type)
 
-qustion = input("What colors are the stars on the American flag? :")
+    if user_type == "rock" and computer_type=="scissor":
+        print("You Won")
+        user=user+1
 
-if qustion.lower() == "white":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
+    elif user_type == "paper" and computer_type == "rock":
+            print("You Won")
+            user = user + 1
 
-qustion = input("Which planet is known as the 'Blue Planet'? :")
+    elif user_type == "scissor" and computer_type == "paper":
+                print("You Won")
+                user = user + 1
 
-if qustion.lower() == "earth":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
+    elif user_type == "scissor" and computer_type == "scissor":
+                print("Ones More Please...")
 
-qustion = input("Which is the largest planet in the solar system? :")
+    elif user_type == "paper" and computer_type == "paper":
+                print("Ones More Please...")
 
-if qustion.lower() == "jupiter":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
+    elif user_type == "rock" and computer_type == "rock":
+                print("Ones More Please...")
 
-qustion = input("How many Olympic rings are there? :")
+    else:
+        print("You Lost")
+        computer = computer+1
 
-if qustion.lower() == "five":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
-
-qustion = input("How many chambers are there in the human heart? :")
-
-if qustion.lower() == "four":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
-
-qustion = input(" Name the coldest place in the world ? :")
-
-if qustion.lower() == "antarctica":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
-
-qustion = input("Do you know the creater of the project ? :")
-
-if qustion.lower() == "manoj":
-        print("Your correct")
-        score = score + 1
-else:
-        print("Your Wrong")
-
-print("Your Total Score Is :"+str(score))
-
-print("Thanks For Playing")
+    print("Your Score :",user)
+    print("Computer Score :",computer)
